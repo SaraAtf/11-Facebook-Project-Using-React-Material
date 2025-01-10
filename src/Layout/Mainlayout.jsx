@@ -1,18 +1,19 @@
-import { Button } from "@mui/material"
-import { makeStyles } from "@mui/styles";
-const useStyles = makeStyles( {
-    test: {
-        color: 'red',
-        backgroundColor: 'green'
+import { Button, ThemeProvider, Typography, styled } from "@mui/material"
+import { theme } from '../styles/theme'
+import { Home } from "../Pages"
+
+const StyledButton = styled( Button )( ( { theme } ) => (
+    {
+        background: theme.palette.primary.main
     }
-} );
+) )
+
 const Mainlayout = () => {
-    const classes = useStyles();
-    console.log( classes )
+
     return (
-        <main>
-            <Button variant="contained" className={classes.test}>Click</Button>
-        </main>
+        <ThemeProvider theme={theme}>
+            <Home />
+        </ThemeProvider>
     )
 }
 
