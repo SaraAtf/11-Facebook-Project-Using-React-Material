@@ -6,7 +6,7 @@ import WbSunnyIcon from '@mui/icons-material/WbSunny';
 import { listItems } from '../models/NavListItems';
 import { useState } from 'react';
 
-export const Sidebar = () => {
+export const Sidebar = ( { setMode, mode } ) => {
     const [ selectedIndex, setSelectedIndex ] = useState( 1 );
 
     const handleListItemClick = ( event, index ) => {
@@ -41,9 +41,13 @@ export const Sidebar = () => {
                         <StyledListItemButton
                             disableTouchRipple disableRipple component='a' href='#home'>
                             <ListItemIcon>
-                                < DarkModeIcon />
+                                {mode == 'light' ?
+                                    < DarkModeIcon onClick={() => setMode( `${mode == 'light' ? 'dark' : 'light'}` )} />
+                                    :
+                                    <WbSunnyIcon onClick={() => setMode( `${mode == 'light' ? 'dark' : 'light'}` )} />
+                                }
                             </ListItemIcon>
-                            <ListItemText primary={`Dark Mode`} />
+                            <ListItemText primary={`${mode == 'light' ? 'Dark Mode' : 'Light Mode'}`} />
                         </StyledListItemButton>
                     </ListItem>
                 </List>

@@ -1,18 +1,33 @@
-import { Button, ThemeProvider, Typography, styled } from "@mui/material"
-import { theme } from '../styles/theme'
+import { createTheme } from "@mui/material";
+import { Button, CssBaseline, ThemeProvider, Typography, styled } from "@mui/material"
 import { Home } from "../Pages"
+import { useState } from "react"
 
-const StyledButton = styled( Button )( ( { theme } ) => (
-    {
-        background: theme.palette.primary.main
-    }
-) )
 
 const Mainlayout = () => {
 
+    const [ mode, setMode ] = useState( "dark" );
+    const theme = createTheme( {
+        palette: {
+            mode: mode,
+            primary: {
+                main: "#1760a5",
+                light: "skyblue",
+            },
+            secondary: {
+                main: "#15c630",
+            },
+            otherColor: {
+                main: "#999",
+            },
+        },
+    } );
+
+
     return (
         <ThemeProvider theme={theme}>
-            <Home />
+            <CssBaseline />
+            <Home setMode={setMode} mode={mode} />
         </ThemeProvider>
     )
 }

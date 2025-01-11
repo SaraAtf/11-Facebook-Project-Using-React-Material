@@ -1,4 +1,4 @@
-import { Badge, Box, ListItemButton, Toolbar, styled } from "@mui/material";
+import { Badge, Box, ListItemButton, Modal, Toolbar, styled } from "@mui/material";
 
 const StyledToolBar = styled( Toolbar )( ( { theme } ) => ( {
     display: 'flex',
@@ -7,8 +7,9 @@ const StyledToolBar = styled( Toolbar )( ( { theme } ) => ( {
 
 
 const Search = styled( 'div' )( ( { theme } ) => ( {
+
     width: "40%",
-    backgroundColor: 'white',
+    backgroundColor: theme.palette.mode == 'light' ? 'white' : "#464646",
     padding: "0px 0.85rem",
     borderRadius: theme.shape.borderRadius
 } ) )
@@ -28,6 +29,13 @@ const UserBox = styled( Box )( ( { theme } ) => ( {
     [ theme.breakpoints.up( 'sm' ) ]: {
         display: 'none'
     }
+} ) )
+const BoxContainer = styled( Box )( ( { theme } ) => ( {
+    display: 'flex',
+    gap: '0.5rem',
+    alignItems: 'center',
+    cursor: 'pointer',
+
 } ) )
 const MessengerIcon = styled( "img" )( ( { theme } ) => ( {
     cursor: 'pointer',
@@ -73,4 +81,10 @@ const StyledListItemButton = styled( ListItemButton )( ( theme ) => ( {
         backgroundColor: 'red'
     },
 } ) )
-export { StyledToolBar, StyledBadge, Icons, Search, MessengerIcon, UserBox, StyledListItemButton }
+
+const StyledModal = styled( Modal )( {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+} )
+export { StyledToolBar, StyledBadge, Icons, Search, MessengerIcon, BoxContainer, UserBox, StyledListItemButton, StyledModal }
