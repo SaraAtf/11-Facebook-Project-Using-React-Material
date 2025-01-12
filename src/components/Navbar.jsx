@@ -26,7 +26,7 @@ export const Navbar = () => {
         <AppBar position='sticky'>
             <StyledToolBar>
                 <Typography sx={{ display: { xs: "none", sm: "flex" } }} variant='h6'>Facebook</Typography>
-                <FacebookOutlinedIcon sx={{ display: { sm: "flex", sm: "none" } }} />
+                <FacebookOutlinedIcon sx={{ display: { xs: "flex", sm: "none" } }} />
                 <Search>
                     <InputBase placeholder='Search .... ' sx={{ width: "100%" }} />
                 </Search>
